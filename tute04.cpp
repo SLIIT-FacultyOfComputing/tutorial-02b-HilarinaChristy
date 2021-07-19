@@ -12,18 +12,49 @@ long nCr(int n, int r);
 Do not modify the main function.*/
 
 #include <iostream>
-
-long Factorial(int no);
-long nCr(int n, int r);
-
+#include<iomanip>
+int Factorial(int no);
+int nCr(int n, int r);
+using namespace std;
 int main() {
-  int n, r;
-  std::cout << "Enter a value for n ";
-  std::cin >> n;
-  std::cout << "Enter a value for r ";
-  std::cin >> r;
-  std::cout << "nCr = ";
-  std::cout << nCr(n,r);
-  std::cout << std::endl;
+  int n, r,factorial,answer;
+  cout << "Enter a value for n: ";
+  cin >> n;
+ cout << "Enter a value for r: ";
+  cin >> r;
+  factorial = Factorial(n);
+  cout << "Factorial is:"<<factorial<<endl;
+  answer = nCr(n,r);
+  cout << "The answer for the second function is:"<<setiosflags(ios::fixed)<<answer<<endl;
   return 0;
+}
+int Factorial(int no)
+{
+  int fac;
+  fac = 1;
+    for (int r=no; r >= 1; r--) {
+        fac = fac * r; //factorial found
+    }
+  return fac;
+
+}
+int nCr(int n, int r)
+{
+  int fac,facto,factor,q;
+  float ans;
+  fac = 1;
+    for (int n; n >= 1; n--) {
+        fac = fac * n; //factorial found
+    }
+    facto = 1;
+     for (int r; r >= 1; r--) {
+        facto = facto * r; //factorial found
+    }
+    factor = 1;
+    q = n - r;
+    for (int q; q >= 1; q--) {
+        factor = factor * q;
+    }
+    ans = fac / (facto * factor);
+    return ans;
 }
